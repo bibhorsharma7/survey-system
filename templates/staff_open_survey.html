@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+	<head>
+	<title> Surveys Running </title>
+	</head>
+	<body>
+		{% for question in optional_text_questions %} 
+		<h2> Question {{loop.index}}: {{question[1]}} </h2>
+		<button type="submit" name="add_text_question_to_survey">Add</button>
+		{% endfor %}
+		<p>
+		<button type="submit" name="finish">Submit</button>
+	</Form>
+	</body>
+</html>
+

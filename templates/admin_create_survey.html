@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+	<head>
+	<title> Create Survey </title>
+	</head>
+	<body>
+		<h1> Course Name: {{course_name}}</h1>
+		<h2> The survey is currently: </h2>
+		{% for question in questions_in_survey %} 
+			{% if question[0] == 0 %}
+				<h2> Question {{loop.index}}: {{question[1]}}</h2>
+				<h3> a) {{question[2]}}</h3>
+				<h3> b) {{question[3]}}</h3>
+				<h3> c) {{question[4]}}</h3>
+				<h3> d) {{question[5]}}</h3>
+			{% elif question[0] == 1 %}
+				<h2> Question {{loop.index}}: {{question[1]}}</h2>
+			{% endif %}
+		{% endfor %}
+		<Form method="POST">
+		<p><font size="6">Choose the generic questions:</font></p>
+		{% for question in generic_questions %} 
+			{% if question[0] == 0 %}
+				<h2> Question {{loop.index}}: {{question[1]}}</h2>
+				<h3> a) {{question[2]}}</h3>
+      				<h3> b) {{question[3]}}</h3>
+      				<h3> c) {{question[4]}}</h3>
+      				<h3> d) {{question[5]}}</h3>
+			{% elif question[0] == 1 %}
+				<h2> Question {{loop.index}}: {{question[1]}}</h2>
+			{% endif %}
+		<button type="submit" name="add_generic_question_to_survey" value = "{{loop.index0}}" >Add</button>
+		{% endfor %}
+		
+		<p><font size="6">Enter multiple choice generic question:</font></p>
+		<input size = "120" name= "generic_multi_question" placeholder= "Question"/>
+		<p>Enter Option 1:</p>
+		<input name= "generic_option_1" placeholder= "Option 1"/>
+		<p>Enter Option 2:</p>
+		<input name= "generic_option_2" placeholder= "Option 2"/>
+		<p>Enter Option 3:</p>
+		<input name= "generic_option_3" placeholder= "Option 3"/>
+		<p>Enter Option 4:</p>
+		<input name= "generic_option_4" placeholder= "Option 4"/>
+		<br>
+		<button type="submit" name="add_multi_question_to_generic_list">Add</button>
+		<p><font size="6">Enter text generic question:</font></p>
+		<input size = "120" name= "generic_text_question" placeholder= "Text Question"/>
+		<button type="submit" name="add_text_question_to_generic_list">Add</button>
+		<p>
+		<p><font size="6">Optional questions:</font></p>
+		{% for question in optional_questions %} 
+			{% if question[0] == 0 %}
+				<h2> Question {{loop.index}}: {{question[1]}}</h2>
+				<h3> a) {{question[2]}}</h3>
+				<h3> b) {{question[3]}}</h3>
+				<h3> c) {{question[4]}}</h3>
+				<h3> d) {{question[5]}}</h3>
+			{% elif question[0] == 1 %}
+				<h2> Question {{loop.index}}: {{question[1]}}</h2>
+			{% endif %}
+		{% endfor %}
+		<p><font size="6">Enter multiple choice optional question:</font></p>
+		<input size = "120" name= "optional_multi_question" placeholder= "Question"/>
+		<p>Enter Option 1:</p>
+		<input name= "optional_option_1" placeholder= "Option 1"/>
+		<p>Enter Option 2:</p>
+		<input name= "optional_option_2" placeholder= "Option 2"/>
+		<p>Enter Option 3:</p>
+		<input name= "optional_option_3" placeholder= "Option 3"/>
+		<p>Enter Option 4:</p>
+		<input name= "optional_option_4" placeholder= "Option 4"/>
+		<br>
+		<button type="submit" name="add_multi_question_to_optional_list">Add</button>
+		<p><font size="6">Enter text optional question:</font></p>
+		<input size = "120" name= "optional_text_question" placeholder= "Text Question"/>
+		<button type="submit" name="add_text_question_to_optional_list">Add</button>
+		<p>
+		<button type="submit" name="finish">Submit</button>
+	</Form>
+	</body>
+</html>
+

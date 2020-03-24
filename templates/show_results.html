@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+	<title> Create Survey </title>
+	</head>
+	<body>
+		<h1> Course Name: {{course_name}}</h1>
+		<h2> The survey is currently: </h2>
+		{% for question in questions_in_survey %} 
+			{% if question[0] == 0 %}
+				<h2> Question {{loop.index}}: {{question[1]}}</h2>
+				<h3> a) {{question[2]}}</h3>
+				<h3> b) {{question[3]}}</h3>
+				<h3> c) {{question[4]}}</h3>
+				<h3> d) {{question[5]}}</h3>
+                <h2> Responses</h2>
+                <h3> a) = {{question[7]}}</h3>
+                <h3> b) = {{question[8]}}</h3>
+                <h3> c) = {{question[9]}}</h3>
+                <h3> d) = {{question[10]}}</h3>
+			{% elif question[0] == 1 %}
+				<h2> Question {{loop.index}}: {{question[1]}}</h2>
+                <h2> Responses: </h2>
+                {% for response in question[11] %}
+                    <h3> {{response}} </h3>
+                {% endfor %}
+			{% endif %}
+		{% endfor %}
+        <Form method="POST">
+            <button type="submit" name="logout">Log out</button>
+        </Form>
+	</body>
+</html>
+

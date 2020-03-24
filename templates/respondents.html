@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+   <head>
+   <title> Survey Responses </title>
+   </head>
+   <body>
+      <h2> Course Name: {{course_name}} </h2>
+      <Form method="POST">
+         {% for question in questions %}
+
+    		{% if question[0] == 0 %}
+			<h2> Question: {{question[1]}} </h2>
+
+         		<input type="radio" name="{{loop.index0}}" value="1"> a) {{question[2]}}<br>
+         		<input type="radio" name="{{loop.index0}}" value="2"> b) {{question[3]}}<br>
+         		<input type="radio" name="{{loop.index0}}" value="3"> c) {{question[4]}}<br>
+         		<input type="radio" name="{{loop.index0}}" value="4"> d) {{question[5]}}
+
+		    {% endif %}
+		    {% if question[0] == 1 %}
+			    <h2> Question: {{question[1]}} </h2>
+			    <input size = "120" name= "{{loop.index0}}" placeholder= "Text Response"/>	
+		    {% endif %}
+         {% endfor %}
+		 <button type="submit" name="finish">Submit</button>
+      </Form>
+   </body>
+</html>
+

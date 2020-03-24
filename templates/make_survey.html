@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+   <head>
+   <title>Create Survey</title>
+   </head>
+   <body>
+      <h1> Details page </h1>
+      <Form method="POST">
+         <input name="survey_name" placeholder="Enter Survey Name"/>
+         <select name = "Item_name">
+  		{% for course in courses %}
+  		<option value="{{course}}">{{course}}</option>
+		{% endfor %}
+	</select>
+	<button type="submit" name="logout">Log out</button>
+        <button type="submit" name="choose_course">Make survey</button>
+      </Form>
+   </body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+   <head>
+   <title>Create Survey</title>
+   </head>
+   <body>
+        <h1> Choose a course to review a survey</h1>
+        <Form method="POST">
+            <select name="Item_name">
+                {% for course in courses %}
+                    <option value={{course}}>{{course}}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" name="choose_course">Choose course</button>
+            </p>
+            <h1> Choose a course to view results </h1>
+            <select name="course_for_results">
+                {% for course in results_courses %}
+                    <option value={{course}}>{{course}}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" name="review_course">Choose course</button>
+            </p>
+	        <button type="submit" name="logout">Log out</button>
+        </Form>
+    </body>
+</html>
